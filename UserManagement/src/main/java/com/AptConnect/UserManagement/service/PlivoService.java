@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PlivoService {
-    private String authId = "MAYJGWYJHMODGZYTNIOD";
-    private String authToken = "ZTUxNTNiNGFhNzc1YWQ2Y2Q3MzIwNThkMmQ4NDk4";
-    private String srcPhoneNumber = "9553546343";
+    private String authId = "";
+    private String authToken = "";
+    private String srcPhoneNumber = "";
 
     public PlivoService() {
         Plivo.init(this.authId, this.authToken);
