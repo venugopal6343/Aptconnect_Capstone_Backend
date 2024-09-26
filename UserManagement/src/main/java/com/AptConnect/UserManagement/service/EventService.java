@@ -30,8 +30,8 @@ public class EventService {
     private UserRepository userRepository;
     @Autowired
     private JavaMailSender mailSender;
-    @Autowired
-    private PlivoService plivoService;
+//    @Autowired
+//    private PlivoService plivoService;
 
     public EventService() {
     }
@@ -73,11 +73,11 @@ public class EventService {
         System.out.println("Email sent to: " + user.getEmail());
     }
 
-    private void sendEventSMS(User user, Event event) {
-        String var10000 = event.getTitle();
-        String smsBody = "New Event: " + var10000 + "\nDate: " + String.valueOf(event.getEventDate()) + "\nLocation: " + event.getLocation() + "\n";
-        this.plivoService.sendSMS(user.getPhoneNumber(), smsBody);
-    }
+//    private void sendEventSMS(User user, Event event) {
+//        String var10000 = event.getTitle();
+//        String smsBody = "New Event: " + var10000 + "\nDate: " + String.valueOf(event.getEventDate()) + "\nLocation: " + event.getLocation() + "\n";
+//        this.plivoService.sendSMS(user.getPhoneNumber(), smsBody);
+//    }
 
     public List<Event> getAllEvents() {
         return this.eventRepository.findAll();

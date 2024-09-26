@@ -21,8 +21,6 @@ public class Parking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String parkingSlotNumber;
-    @ManyToOne // Establishing the relationship
-    @JoinColumn(name = "user_id") // Foreign key column in the parking table
     private String UserName;
     private String guestName;
     private String userId;

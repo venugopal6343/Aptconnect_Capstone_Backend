@@ -1,19 +1,17 @@
 package com.AptConnect.support_service.model;
-
-
-
+import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-@Document(collection = "help")
+@Entity
+@Table(name = "support")
 public class Support {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private  String name;
     private  String phoneNo;

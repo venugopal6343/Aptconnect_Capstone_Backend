@@ -10,13 +10,13 @@ import lombok.Generated;
 @Entity
 @Table(name = "vendor")
 public class Vendor {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int vendorId;
     private String vendorName;
     private String vendorEmail;
     private String vendorPhone;
-    private String vendorAddress;
     private String vendorService;
 
     @Generated
@@ -29,7 +29,6 @@ public class Vendor {
         this.vendorName = vendorName;
         this.vendorEmail = vendorEmail;
         this.vendorPhone = vendorPhone;
-        this.vendorAddress = vendorAddress;
         this.vendorService = vendorService;
     }
 
@@ -53,10 +52,6 @@ public class Vendor {
         return this.vendorPhone;
     }
 
-    @Generated
-    public String getVendorAddress() {
-        return this.vendorAddress;
-    }
 
     @Generated
     public String getVendorService() {
@@ -83,10 +78,6 @@ public class Vendor {
         this.vendorPhone = vendorPhone;
     }
 
-    @Generated
-    public void setVendorAddress(final String vendorAddress) {
-        this.vendorAddress = vendorAddress;
-    }
 
     @Generated
     public void setVendorService(final String vendorService) {

@@ -15,8 +15,8 @@ public class User {
     private String email;
     private String phoneNumber;
     private boolean smsNotificationsEnabled;
-    @OneToMany(mappedBy = "user") // Establishing the relationship
-    private List<Parking> parkingRecords; // List of parking records associated with the user
+//    @OneToMany(mappedBy = "user") // Establishing the relationship
+//    private List<Parking> parkingRecords; // List of parking records associated with the user
 
     public User() {
     }

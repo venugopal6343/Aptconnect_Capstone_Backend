@@ -1,37 +1,30 @@
 package com.AptConnect.support_service.controller;
-
-
-
 import com.AptConnect.support_service.model.Support;
-import com.AptConnect.support_service.repository.SupportRepository;
+
 import java.util.List;
+
+import com.AptConnect.support_service.service.SupportService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping({"/api/help"})
+@RequestMapping("/api/help")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class SupportController {
     @Autowired
-    private SupportRepository supportRepository;
+    private SupportService supportService;
 
-    public SupportController() {
-    }
 
-    @GetMapping({"/all"})
+
+    @GetMapping("/getAll")
     public List<Support> getAllHelpRequests() {
-        return this.supportRepository.findAll();
+        return this.supportService.getAllHelpRequests();
     }
 
-    @PostMapping({"/create"})
-    public ResponseEntity<Support> createHelpRequest(@RequestBody Support supportRequest) {
-        Support savedRequest = (Support) this.supportRepository.save(supportRequest);
-        return new ResponseEntity(savedRequest, HttpStatus.CREATED);
+    @PostMapping("/create")
+    public Support createHelpRequest(@RequestBody Support supportRequest) {
+        return this.supportService.createHelpRequest(supportRequest);
     }
 }
 
