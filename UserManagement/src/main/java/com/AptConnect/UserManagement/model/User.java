@@ -1,26 +1,22 @@
 package com.AptConnect.UserManagement.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
-@Table(
-        name = "users"
-)
+@Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.IDENTITY
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY    )
     private Long id;
     private String name;
     private String email;
     private String phoneNumber;
     private boolean smsNotificationsEnabled;
+    @OneToMany(mappedBy = "user") // Establishing the relationship
+    private List<Parking> parkingRecords; // List of parking records associated with the user
 
     public User() {
     }

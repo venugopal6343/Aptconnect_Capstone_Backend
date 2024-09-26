@@ -1,47 +1,32 @@
 package com.AptConnect.UserManagement.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Generated;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.time.LocalDate;
 
 @Entity
-@Table(
-        name = "parking"
-)
+@Table(name = "parking")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Parking {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String parkingSlotNumber;
+    @ManyToOne // Establishing the relationship
+    @JoinColumn(name = "user_id") // Foreign key column in the parking table
     private String UserName;
+    private String guestName;
+    private String userId;
+    private LocalDate date=LocalDate.now();
 
-    @Generated
-    public Parking(final String parkingSlotNumber, final String UserName) {
-        this.parkingSlotNumber = parkingSlotNumber;
-        this.UserName = UserName;
-    }
 
-    @Generated
-    public Parking() {
-    }
-
-    @Generated
-    public String getParkingSlotNumber() {
-        return this.parkingSlotNumber;
-    }
-
-    @Generated
-    public String getUserName() {
-        return this.UserName;
-    }
-
-    @Generated
-    public void setParkingSlotNumber(final String parkingSlotNumber) {
-        this.parkingSlotNumber = parkingSlotNumber;
-    }
-
-    @Generated
-    public void setUserName(final String UserName) {
-        this.UserName = UserName;
-    }
 }
